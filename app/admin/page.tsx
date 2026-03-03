@@ -109,7 +109,7 @@ export default function AdminPage() {
       </div>
 
       <div className="text-sm mt-1">
-        Winner: {match.winner || "Not decided"}
+        Winner: {match.matchWinner || "Not decided"}
       </div>
     </div>
   ))}
