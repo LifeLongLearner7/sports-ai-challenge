@@ -62,13 +62,22 @@ export default function LoginPage() {
   }
 
   const signIn = async () => {
-    const origin = window.location.origin;
+    // const origin = window.location.origin;
+
+    // const { error } = await supabase.auth.signInWithOAuth({
+    //   provider: "google",
+    //   options: {
+    //     // Supabase returns here after Google login; then checkUser() sends to redirectTo
+    //     redirectTo: `${origin}/login?redirect=${encodeURIComponent(redirectTo)}`,
+    //   },
+    // });
+
+    const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || window.location.origin;
 
     const { error } = await supabase.auth.signInWithOAuth({
       provider: "google",
       options: {
-        // Supabase returns here after Google login; then checkUser() sends to redirectTo
-        redirectTo: `${origin}/login?redirect=${encodeURIComponent(redirectTo)}`,
+        redirectTo: `${siteUrl}/login?redirect=${encodeURIComponent(redirectTo)}`,
       },
     });
 
